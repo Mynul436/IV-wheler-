@@ -1,9 +1,13 @@
 # depslib dependency file v1.0
-1572473439 source:d:\game project\sfml_test\main.cpp
+1577218591 source:d:\game project\sfml_test\main.cpp
 	<iostream>
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<sstream>
+	<fstream>
+	<string>
+	<String>
+	"coin.hpp"
 
 1568094953 d:\programing_library\sfml-2.5.1\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -522,4 +526,28 @@
 	<iostream>
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
+
+1576995197 source:d:\game project\sfml_test\src\collission.cpp
+	"collission.hpp"
+
+1576995197 d:\game project\sfml_test\include\collission.hpp
+
+1576995152 source:d:\game project\sfml_test\src\menu.cpp
+	"menu.hpp"
+
+1576995152 d:\game project\sfml_test\include\menu.hpp
+
+1577218604 source:d:\game project\sfml_test\src\coin.cpp
+	"coin.hpp"
+	<iostream>
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+
+1577218495 d:\game project\sfml_test\include\coin.hpp
+	"coin.hpp"
+
+1576996562 source:d:\game project\sfml_test\src\highscore.cpp
+	"highscore.hpp"
+
+1576995111 d:\game project\sfml_test\include\highscore.hpp
 
