@@ -1,1 +1,1 @@
-SABIT 67 asd 7 sda 5
+Name1 0 Name2 0 Name3 0

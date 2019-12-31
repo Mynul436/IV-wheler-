@@ -69,24 +69,22 @@ a:
         sound.loadFromFile("music/crash.wav");
         sf::Sound crash(sound);
 
-        SoundBuffer horn;
-        horn.loadFromFile("music/horn.wav");
-        sf::Sound Horn(horn);
-
 ///LOAD TEXTURE FROM RESOURCE:
+
         mainmenu.loadFromFile("picture/mainmenu.jpg");
         crush.loadFromFile("picture/crash.png");
         road.loadFromFile("picture/2.jpg");
-        car.loadFromFile("picture/Bluecar1.png");
-        car2.loadFromFile("picture/car4.png");
+        car.loadFromFile("picture/c2.png");
+        car2.loadFromFile("picture/c1.png");
         gameover.loadFromFile("picture/gameover.jpg");
         scoreboard.loadFromFile("picture/scoreboard1.jpg");
         Sound.loadFromFile("picture/music.jpg");
         about.loadFromFile("picture/about.jpg");
         hs.loadFromFile("picture/highscore.jpg");
         congo.loadFromFile("picture/congo.jpg");
-        coin.loadFromFile("picture/coin-icon.png");
+        coin.loadFromFile("picture/coin.png");
         label.loadFromFile("picture/label.jpg");
+
 ///SET SPRITE:
         Sprite spLabel(label),
                menu(mainmenu),
@@ -113,9 +111,7 @@ a:
         spCar4.setColor(Color::Magenta);
         spCar5.setColor(Color::Cyan);
         spCar6.setColor(Color::Yellow);
-        // spCar.setColor(Color::Blue);
-        // spCar7.setColor(Color::Blue);
-        // spCrash.setColor(Color(160,100,190));
+
         spCar.setScale(Vector2f(1,1));
 
 ///SET SPRITE POSITION:
@@ -124,18 +120,18 @@ a:
         spMusic.setPosition(x,x);
         spAbout.setPosition(x,x);
         spHighscore.setPosition(x,x);
-        spCar.setPosition(200,600);
+        spCar.setPosition(260,600);
         spRoad2.setPosition(0,-900);
         spRoad.setPosition(0,0);
         spCongo.setPosition(x,x);
         spCoin.setPosition(x,x);
         spCar7.setPosition(x,x);
         spCrash.setPosition(x,x);
-        spCar2.setPosition(Vector2f(90,-(rand()%2000+100)));
-        spCar3.setPosition(Vector2f(180,-(rand()%2000+100)));
-        spCar4.setPosition(Vector2f(270,-(rand()%2000+100)));
-        spCar5.setPosition(Vector2f(450,-(rand()%2000+100)));
-        spCar6.setPosition(Vector2f(360,-(rand()%2000+100)));
+        spCar2.setPosition(Vector2f(50,-(rand()%2000+100)));
+        spCar3.setPosition(Vector2f(155,-(rand()%2000+100)));
+        spCar4.setPosition(Vector2f(260,-(rand()%2000+100)));
+        spCar5.setPosition(Vector2f(470,-(rand()%2000+100)));
+        spCar6.setPosition(Vector2f(365,-(rand()%2000+100)));
 
 ///GET HIGHSCORE FROM FILE:
         string name1,name2,name3;
@@ -152,9 +148,6 @@ a:
         hscore1<<namescore1;
         hscore2<<namescore2;
         hscore3<<namescore3;
-
-
-
 ///DECLARE TEXT NAME:
         Text hscorer1(name1,font,25),
              hscorer2(name2,font,25),
@@ -192,9 +185,6 @@ a:
         if(m)
             music.play();
 
-        // int a=0,c=1,d=1;
-
-        float y=0.2;
         string str;
         Clock clock;
         Clock clock2;
@@ -202,7 +192,6 @@ a:
 
         while (win.isOpen())
         {
-
             Event event;
             while (win.pollEvent(event))
             {
@@ -216,8 +205,6 @@ a:
 
                 if(event.type==Event::KeyPressed)
                 {
-
-
                     if(rect.getPosition().y==230&&Keyboard::isKeyPressed(Keyboard::Enter))
                     {
                         menu.setPosition(x,x);
@@ -235,9 +222,6 @@ a:
                             rect.setPosition(Vector2f(253,227));
                         vrect1.setPosition(Vector2f(150,350));
                         vrect2.setPosition(Vector2f(150,350));
-
-
-
                         MUSIC=true;
 
                     }
@@ -294,7 +278,12 @@ a:
 
                     {
                         spLabel.setPosition(0,0);
-                        rect.setPosition(200,200);
+                        if(LMEDIUM)
+                            rect.setPosition(200,200);
+                        if(LEASY)
+                            rect.setPosition(200,95);
+                        if(LHARD)
+                            rect.setPosition(200,310);
                         LABEL=true;
                     }
                     if(LABEL)
@@ -306,43 +295,35 @@ a:
                             LABEL=false;
                         }
 
-                     else if(rect.getPosition().y==95&&Keyboard::isKeyPressed(Keyboard::Down))
-                     {
-                        LMEDIUM=true;
-                        LHARD=LEASY=false;
+                        else if(rect.getPosition().y==95&&Keyboard::isKeyPressed(Keyboard::Down))
+                        {
+                            LMEDIUM=true;
+                            LHARD=LEASY=false;
 
-                        rect.setPosition(200,200);
-                     }
-                     else if(rect.getPosition().y==200&&Keyboard::isKeyPressed(Keyboard::Up))
-                     {
-                         LEASY=true;
-                         LHARD=LMEDIUM=false;
-                        rect.setPosition(200,95);
-                     }
+                            rect.setPosition(200,200);
+                        }
+                        else if(rect.getPosition().y==200&&Keyboard::isKeyPressed(Keyboard::Up))
+                        {
+                            LEASY=true;
+                            LHARD=LMEDIUM=false;
+                            rect.setPosition(200,95);
+                        }
 
-                     else if(rect.getPosition().y==200&&Keyboard::isKeyPressed(Keyboard::Down))
-                     {
-                         LHARD=true;
-                         LEASY=LMEDIUM=false;
-                         rect.setPosition(200,310);
-                     }
+                        else if(rect.getPosition().y==200&&Keyboard::isKeyPressed(Keyboard::Down))
+                        {
+                            LHARD=true;
+                            LEASY=LMEDIUM=false;
+                            rect.setPosition(200,310);
+                        }
 
-                     else if(rect.getPosition().y==310&&Keyboard::isKeyPressed(Keyboard::Up))
-                     {
-                         LMEDIUM=true;
-                         LHARD=LEASY=false;
-                         rect.setPosition(200,200);
-                     }
-
-
+                        else if(rect.getPosition().y==310&&Keyboard::isKeyPressed(Keyboard::Up))
+                        {
+                            LMEDIUM=true;
+                            LHARD=LEASY=false;
+                            rect.setPosition(200,200);
+                        }
 
                     }
-
-
-
-
-
-
 
                     if(rect.getPosition().y==610&&Keyboard::isKeyPressed(Keyboard::Enter))
                     {
@@ -385,14 +366,14 @@ a:
                     {
                         if(spCar.getPosition().x>50&&Keyboard::isKeyPressed(Keyboard::A))
                             if(!RESUME)
-                                spCar.move(-9,0);
-                        if(spCar.getPosition().x<500&&Keyboard::isKeyPressed(Keyboard::D))
+                                spCar.move(-105,0);
+                        if(spCar.getPosition().x<470&&Keyboard::isKeyPressed(Keyboard::D))
                             if(!RESUME)
-                                spCar.move(9,0);
-                        if(spCar.getPosition().y>=30&&Keyboard::isKeyPressed(Keyboard::W))
+                                spCar.move(105,0);
+                        if(spCar.getPosition().y>=150&&Keyboard::isKeyPressed(Keyboard::W))
                             if(!RESUME)
                                 spCar.move(Vector2f(0,-40));
-                        if(spCar.getPosition().y<690&&Keyboard::isKeyPressed(Keyboard::S))
+                        if(spCar.getPosition().y<700&&Keyboard::isKeyPressed(Keyboard::S))
                             if(!RESUME)
                                 spCar.move(0,40);
 
@@ -435,10 +416,6 @@ a:
                         {
                             goto a;
                         }
-                        if(Keyboard::isKeyPressed(Keyboard::H)&&!RESUME)
-                            if(m)
-                                Horn.play();
-
 
 
                     }
@@ -507,25 +484,46 @@ a:
 
             }
 
+
 ///GAME LOOPS:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
             //if(menu.getPosition().x==12345)
             if(START&&!COLLISSION&&!GAMEOVER&&!RESUME)
             {
                 Time time=clock.getElapsedTime();
+                if(LEASY)
+                {
+                    spCar2.move(Vector2f(0,0.23));
+                    spCar3.move(Vector2f(0,0.23));
+                    spCar4.move(Vector2f(0,0.23));
+                    spCar5.move(Vector2f(0,0.23));
+                    spCar6.move(Vector2f(0,0.23));
+                }
+                if(LMEDIUM)
+                {
+                    spCar2.move(Vector2f(0,0.26+time.asSeconds()/900));
+                    spCar3.move(Vector2f(0,0.26+time.asSeconds()/1000));
+                    spCar4.move(Vector2f(0,0.26+time.asSeconds()/1300));
+                    spCar5.move(Vector2f(0,0.26+time.asSeconds()/1700));
+                    spCar6.move(Vector2f(0,0.26+time.asSeconds()/2000));
+                }
+                if(LHARD)
+                {
+                    spCar2.move(Vector2f(0,0.3+time.asSeconds()/800));
+                    spCar3.move(Vector2f(0,0.3+time.asSeconds()/1000));
+                    spCar4.move(Vector2f(0,0.3+time.asSeconds()/2000));
+                    spCar5.move(Vector2f(0,0.3+time.asSeconds()/1500));
+                    spCar6.move(Vector2f(0,0.3+time.asSeconds()/3000));
+                }
 
-                spCar2.move(Vector2f(0,y));
-                spCar3.move(Vector2f(0,y));
-                spCar4.move(Vector2f(0,y));
-                spCar5.move(Vector2f(0,y));
-                spCar6.move(Vector2f(0,y));
                 spRoad.move(Vector2f(0,0.1));
                 spRoad2.move(Vector2f(0,0.1));
-                spCoin.move(Vector2f(0,0.1));
+
+                spCoin.move(Vector2f(0,0.2));
 
             }
             if(spCar2.getPosition().y>900)
             {
-                spCar2.setPosition(Vector2f(1350-spCar3.getPosition().x-spCar4.getPosition().x
+                spCar2.setPosition(Vector2f(1300-spCar3.getPosition().x-spCar4.getPosition().x
                                             -spCar5.getPosition().x-spCar6.getPosition().x,-(rand()%2000+100)));
                 score++;
                 sscore.str("");
@@ -534,7 +532,7 @@ a:
             }
             if(spCar3.getPosition().y>900)
             {
-                spCar3.setPosition(Vector2f(1350-spCar2.getPosition().x-spCar4.getPosition().x
+                spCar3.setPosition(Vector2f(1300-spCar2.getPosition().x-spCar4.getPosition().x
                                             -spCar5.getPosition().x-spCar6.getPosition().x,-(rand()%2000+100)));
                 score++;
                 sscore.str("");
@@ -543,7 +541,7 @@ a:
             }
             if(spCar4.getPosition().y>900)
             {
-                spCar4.setPosition(Vector2f(1350-spCar3.getPosition().x-spCar2.getPosition().x
+                spCar4.setPosition(Vector2f(1300-spCar3.getPosition().x-spCar2.getPosition().x
                                             -spCar5.getPosition().x-spCar6.getPosition().x,-(rand()%2000+100)));
                 score++;
                 sscore.str("");
@@ -552,7 +550,7 @@ a:
             }
             if(spCar5.getPosition().y>900)
             {
-                spCar5.setPosition(Vector2f(1350-spCar3.getPosition().x-spCar4.getPosition().x
+                spCar5.setPosition(Vector2f(1300-spCar3.getPosition().x-spCar4.getPosition().x
                                             -spCar2.getPosition().x-spCar6.getPosition().x,-(rand()%2000+100)));
                 score++;
                 sscore.str("");
@@ -561,7 +559,7 @@ a:
             }
             if(spCar6.getPosition().y>900)
             {
-                spCar6.setPosition(Vector2f(1350-spCar3.getPosition().x-spCar4.getPosition().x
+                spCar6.setPosition(Vector2f(1300-spCar3.getPosition().x-spCar4.getPosition().x
                                             -spCar2.getPosition().x-spCar5.getPosition().x,-(rand()%2000+100)));
                 score++;
                 sscore.str("");
@@ -633,10 +631,14 @@ a:
                     else
                     {
                         Gameover.setPosition(Vector2f(0,0));
+                        hs1.setPosition(420,27);
+                        hs1.setCharacterSize(40);
+                        hs1.setOutlineThickness(2);
+                        hs1.setLetterSpacing(2);
+                        hs1.setOutlineColor(Color::White);
                         rect.setPosition(Vector2f(200,440));
                     }
-                    //spCar.setPosition(Vector2f(900,0));
-                    //spCar2.setPosition(Vector2f(900,0));
+
                     text.setPosition(Vector2f(300,150));
                     text.setCharacterSize(45);
                     text.setColor(Color::Black);
@@ -647,22 +649,33 @@ a:
                 }
             }
 
-            //spCar.setLocalBounds(Vector2f(30,20));
+
             if(spCar.getGlobalBounds().intersects(spCoin.getGlobalBounds()))
             {
                 spCoin.setPosition(x,x);
-                //life++;
-                score=score+50;
+
+                if(LEASY)
+                    score+=30;
+                if(LMEDIUM)
+                    score+=20;
+                if(LHARD)
+                    score+=10;
                 sscore.str("");
                 sscore<<score;
                 text.setString(sscore.str());
             }
             if(spCoin.getPosition().y>900)
-                if(score%10==0&&score!=0)
-                {
-                    spCoin.setPosition(Vector2f(spCar.getPosition().x+15,-300));
-                }
+            {
 
+                if(LEASY&&score%5==0&&score!=0)
+                    spCoin.setPosition(Vector2f(spCar.getPosition().x+15,-300));
+                if(LMEDIUM&&score%10==0&&score!=0)
+                    spCoin.setPosition(Vector2f(spCar.getPosition().x+15,-300));
+                if(LHARD&&score%20==0&&score!=0)
+                    spCoin.setPosition(Vector2f(spCar.getPosition().x+15,-300));
+
+
+            }
             if( spCar.getScale().x==1.2f&&clock3.getElapsedTime().asMilliseconds()>1300)
             {
                 spCar.setScale(Vector2f(1,1));
@@ -712,10 +725,10 @@ a:
             win.draw(spCar4);
             win.draw(spCar5);
             win.draw(spCar6);
+            win.draw(sb);
             win.draw(spCar);
             win.draw(spCar7);
             win.draw(spCrash);
-            win.draw(sb);
             win.draw(resume);
             win.draw(men);
             win.draw(Gameover);
@@ -729,7 +742,6 @@ a:
             win.draw(vrect2);
             win.draw(rect);
             win.draw(spHighscore);
-
             win.draw(spAbout);
             win.draw(hscorer1);
             win.draw(hscorer2);
