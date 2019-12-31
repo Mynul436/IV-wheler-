@@ -48,11 +48,18 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
+			<Add option="-std=c++14" />
 			<Add option="-fexceptions" />
+			<Add directory="D:/programing_library/SFML-2.5.1/include" />
 		</Compiler>
+		<Linker>
+			<Add directory="D:/programing_library/SFML-2.5.1/lib" />
+		</Linker>
 		<Unit filename="include/coin.hpp" />
 		<Unit filename="include/collission.hpp" />
+		<Unit filename="include/entity.hpp" />
 		<Unit filename="include/highscore.hpp" />
+		<Unit filename="include/lavel.hpp" />
 		<Unit filename="include/menu.hpp" />
 		<Unit filename="main.cpp" />
 		<Unit filename="sfml-audio-2.dll" />
@@ -67,7 +74,9 @@
 		<Unit filename="sfml-window-d-2.dll" />
 		<Unit filename="src/coin.cpp" />
 		<Unit filename="src/collission.cpp" />
+		<Unit filename="src/entity.cpp" />
 		<Unit filename="src/highscore.cpp" />
+		<Unit filename="src/lavel.cpp" />
 		<Unit filename="src/menu.cpp" />
 		<Extensions>
 			<code_completion />

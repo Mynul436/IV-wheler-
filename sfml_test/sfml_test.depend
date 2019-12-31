@@ -1,13 +1,13 @@
 # depslib dependency file v1.0
-1577218591 source:d:\game project\sfml_test\main.cpp
+1577810593 source:d:\game project\sfml_test\main.cpp
 	<iostream>
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<sstream>
 	<fstream>
 	<string>
+	<stdlib.h>
 	<String>
-	"coin.hpp"
 
 1568094953 d:\programing_library\sfml-2.5.1\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -537,17 +537,26 @@
 
 1576995152 d:\game project\sfml_test\include\menu.hpp
 
-1577218604 source:d:\game project\sfml_test\src\coin.cpp
+1577223132 source:d:\game project\sfml_test\src\coin.cpp
 	"coin.hpp"
-	<iostream>
-	<SFML/Graphics.hpp>
-	<SFML/Audio.hpp>
 
-1577218495 d:\game project\sfml_test\include\coin.hpp
-	"coin.hpp"
+1577223806 d:\game project\sfml_test\include\coin.hpp
 
 1576996562 source:d:\game project\sfml_test\src\highscore.cpp
 	"highscore.hpp"
 
 1576995111 d:\game project\sfml_test\include\highscore.hpp
+
+1577223806 source:d:\game project\sfml_test\src\entity.cpp
+	"entity.hpp"
+
+1577225722 d:\game project\sfml_test\include\entity.hpp
+
+1577741850 source:d:\game project\sfml_test\src\lavel.cpp
+	"lavel.hpp"
+
+1577741850 d:\game project\sfml_test\include\lavel.hpp
+	<iostream>
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
 
