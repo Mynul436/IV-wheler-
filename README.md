@@ -1,4 +1,4 @@
-# IV-Wheeler
+# IV-Wheeler(Project SWE150)
 Game Project  ::  IV Wheeler
 
 # Topics :
@@ -6,6 +6,7 @@ Game Project  ::  IV Wheeler
 - 2D car racing game using c++;
 - sfml basic programming with c++;
 - sfml configuration in codeBlocks 
-# Team Member
+# Team Member:
 -Mynul Islam(2018831059)
 -Sabit Islam Bhuiya(2018831061)
+-University:Shahjalal University Of Science and Technology
